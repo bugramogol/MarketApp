@@ -1,0 +1,30 @@
+.Main-Container {
+
+    /*border: 1px solid;*/
+    margin: 16px;
+    margin-left: 104px;
+    margin-right: 104px;
+    border: 1px solid;
+}
+
+.Layout-Container {
+    display: flex;
+    flex-direction: row;
+}
+
+.Layout-Left {
+    width: 214px;
+    /*border: 1px solid;*/
+    justify-content: left;
+    align-items: flex-start;
+}
+
+.Layout-Center {
+    flex: 1;
+    /*border: 1px solid;*/
+}
+
+.Layout-Right {
+    width: 318.25px;
+    /*border: 1px solid;*/
+}

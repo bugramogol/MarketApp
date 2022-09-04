@@ -1,0 +1,41 @@
+@import url('../../../App.css');
+
+/* Header */
+.Header{
+    height: 76.64px;
+    background: #1EA4CE;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Header Background */
+.HeaderBackground{
+    background: #1EA4CE;
+}
+
+/* Background */
+.Background{
+    position: absolute;
+    left: 83.82%;
+    right: 7.22%;
+    top: 0%;
+    bottom: 94.83%;
+    
+    background: #147594;
+}
+
+/* Logo */
+.Logo{
+    width: 141.25px;
+    height: 40.32px;
+}
+
+/* Basket */
+.Basket{
+    position: absolute;
+    left: 83.82%;
+    right: 7.22%;
+    top: 0%;
+    bottom: 94.83%;
+}

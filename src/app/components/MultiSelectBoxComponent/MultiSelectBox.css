@@ -1,0 +1,56 @@
+.MultiSelectContainer {
+    width: 296px;
+}
+
+.MultiSelectHeader {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    color: #697488;
+    margin-bottom: 12px;
+}
+
+.MultiSelectContent {
+    height: 244px;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    box-shadow: 0px 6px 24px rgba(93, 62, 188, 0.04);
+    border-radius: 2px;
+}
+
+.SearchInput {
+    height: 48px;
+    border: 2px solid #E0E0E0;
+    border-radius: 2px;
+    margin: 24px 24px 17px 24px;
+}
+
+.list {
+    flex: 1;
+    margin: 0px 24px 17px 24px;
+    overflow-y: scroll;
+}
+
+/* width */
+.list::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.list::-webkit-scrollbar-track {
+    background: #FFFFFF;
+}
+
+/* Handle */
+.list::-webkit-scrollbar-thumb {
+    background: #E0E0E0;
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+.list::-webkit-scrollbar-thumb:hover {
+    background: #dddddd;
+}

@@ -1,0 +1,52 @@
+.Sorting-Container{
+    display: block;
+}
+.flex {
+    flex: 1;
+}
+
+.Form {
+    flex: 1;
+    background: #FFFFFF;
+    box-shadow: 0px 6px 24px rgba(93, 62, 188, 0.04);
+    border-radius: 2px;
+}
+
+.Form-Label {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    margin-bottom: 12px;
+}
+
+.Form-Label-Color{
+    color: #697488;
+}
+
+input {
+    background: #FFFFFF;
+    border: 2px solid #1EA4CE;
+    border-radius: 17.5px;
+}
+.radio{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 12px;
+
+}
+
+.Radio-Label{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.Radio-Label-Color{
+    color: #525252;
+}

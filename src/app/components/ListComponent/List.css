@@ -1,0 +1,51 @@
+.Main-Container {}
+
+.List-Container {
+    display: flex;
+    margin: 8px;
+    flex-flow: row wrap;
+}
+
+.paginator {
+    display: flex;
+    flex-direction: row;
+    width: 475px;
+    height: 40px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #697488;
+
+}
+
+.paginator li{
+    width: 475px;
+    height: 40px;
+
+}
+
+.paginator a{
+    justify-content: center;
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.paginator li::marker {
+    display: none !important;
+    content: none;
+}
+
+
+.paginator li.selected {
+    background: #1EA4CE;
+    border-radius: 2px;
+    color: white;
+}
+
+.paginator :focus-visible {
+    outline: none !important;
+}

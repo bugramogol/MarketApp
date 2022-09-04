@@ -1,0 +1,64 @@
+@import url('../../../App.css');
+.Product-main-Container{
+    margin: 12px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.product-container{
+    height: 225px;
+    max-width: 124px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-image {
+    background: #C4C4C4;
+    height: 92px;
+    width: 92px;
+    margin:16px;
+}
+
+.product-image-container {
+    background: #FEFEFE;
+    border: 1.17666px solid #F3F0FE;
+    border-radius: 12px;
+    height: 124px;
+    width: 124px;
+}
+
+.product-name-label{
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    color: #191919;
+    margin-bottom: 8px;
+    
+    flex: 1;
+}
+
+.product-price-label{
+    font-family: 'Helvetica';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    color: #1EA4CE;
+    margin-top: 8px;
+}
+
+.product-add-button{
+    background: #1EA4CE;
+    border-radius: 2px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 20px;
+    color: #FFFFFF;
+    border: none;
+    width: 100%;
+}
