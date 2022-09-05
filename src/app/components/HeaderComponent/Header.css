@@ -1,5 +1,26 @@
 @import url('../../../App.css');
 
+.Main-Container {
+    flex: 1;
+}
+
+.empty {
+    flex: 1;
+    visibility: hidden;
+}
+
+.header-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basket-containerr {
+    flex: 1;
+
+}
+
 /* Header */
 .Header {
     height: 76px;
@@ -36,6 +57,13 @@
     height: 24px;
 }
 
+.header-cont {
+    display: flex;
+    margin-left: 104px;
+    margin-right: 104px;
+    flex: 1;
+}
+
 /* Basket */
 .Basket {
     background: #147594;
@@ -50,22 +78,13 @@
     color: #FFFFFF;
     display: flex;
     justify-content: center;
-    position: absolute;
-    right: 104px;
     height: 76px;
+    float: right;
 }
 
 
-@media (max-width:880px) and (min-width:300px) {
-    .Header{
-        justify-content: flex-start;
-    }
-
-    .header-container{
-        margin-left: 32px;
-    }
-
-    .Basket{
-        right: 0px;
+@media (max-width: 1187px) {
+    .Basket {
+        display: none;
     }
 }

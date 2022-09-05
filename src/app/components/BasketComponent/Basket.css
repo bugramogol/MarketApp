@@ -1,5 +1,5 @@
 .basket-container {
-    width: 296px;
+    width: 281px;
     background: #1EA4CE;
     border-radius: 2px;
     padding: 8px;
@@ -22,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 60px;
+    min-height: 400px;
 }
 
 .basket-card-container {
@@ -58,6 +58,19 @@
     /* Grayscale / 700 */
 
     color: #191919;
+}
+
+.basket-empty-icon {
+    height: 100px;
+    width: 100px;
+}
+
+.container-x {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .basket-button {
@@ -124,6 +137,7 @@
 
 
 .test {
+    min-height: 400px;
     max-height: 400px;
     overflow-y: scroll;
 }
@@ -147,4 +161,28 @@
 /* Handle on hover */
 .test::-webkit-scrollbar-thumb:hover {
     background: #dddddd;
+}
+
+.basket-iconn {
+    width: 24px;
+    height: 24px;
+}
+
+/* Basket */
+.Baskett {
+    background: #147594;
+    width: 129px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    align-items: center;
+    letter-spacing: 0.16px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 104px;
+    height: 76px;
 }

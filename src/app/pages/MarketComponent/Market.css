@@ -5,6 +5,7 @@
     max-width: 1440px;
 }
 
+
 .Layout-Container {
     display: flex;
     flex-direction: row;
@@ -18,6 +19,12 @@
     justify-content: left;
     align-items: flex-start;
 }
+
+.layout-center-container {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
 
 .Layout-Center {
     flex: 1;

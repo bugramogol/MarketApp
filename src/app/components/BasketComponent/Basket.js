@@ -3,21 +3,25 @@ import { connect } from "react-redux";
 import './Basket.css';
 import minus from '../../../assets/images/minus.svg';
 import plus from '../../../assets/images/plus.svg';
-
+import basket from '../../../assets/images/basket-blue.svg';
 class Basket extends React.Component {
-
-    constructor(props) {
-        super(props)
-    }
 
     render() {
         return (
             <div className='basket-container'>
                 <div className='basket-content'>
                     <div>
-                        {this.props.basket == null || this.props.basket.length == 0 ? (
+                        {this.props.basket === null || this.props.basket.length === 0 ? (
                             <div className='basket-empty basket-product-name'>
-                                Yout basket is empty
+                                <div className='container-x'>
+                                    <img src={basket} className="basket-empty-icon" alt='basket' />
+                                    <br />
+                                    Yout basket is empty
+                                    <br />
+
+                                    Add items to your cart to order
+                                </div>
+
                             </div>
                         ) : (
                             <div className='test'>
@@ -51,10 +55,15 @@ class Basket extends React.Component {
                             </div>
                         )}
                     </div>
+                    {this.props.basket === null || this.props.basket.length === 0 ? (
+                        null
+                    ) : (
+                        <div className='basket-total'>
+                            {this.props.price.toFixed(2)}
+                        </div>
+                    )
+                    }
 
-                    <div className='basket-total'>
-                        {this.props.price.toFixed(2)}
-                    </div>
                 </div>
 
             </div >

@@ -4,6 +4,7 @@ import Sorting from "../../components/SortingComponent/Sorting.js";
 import List from "../../components/ListComponent/List";
 import MultiSelectBox from "../../components/MultiSelectBoxComponent/MultiSelectBox";
 import Basket from "../../components/BasketComponent/Basket";
+import { getItems, getItemsByPage } from "../../services/ApiService";
 
 class Market extends React.Component {
   constructor(props) {
@@ -40,8 +41,7 @@ class Market extends React.Component {
   }
 
   getProductList() {
-    fetch("http://localhost:3001/items")
-      .then(res => res.json())
+    getItems()
       .then(
         (result) => {
           var tags = []
@@ -50,21 +50,21 @@ class Market extends React.Component {
           result.forEach(res => {
 
             res.tags.forEach(el => {
-              var a = tags.find(f => f.tag == el)
+              var a = tags.find(f => f.tag.toLowerCase() === el.toLowerCase())
               if (typeof a == "undefined") {
-                tags.push({ tag: el, count: 1 })
+                tags.push({ tag: el, count: 1, isChecked: false })
               }
               else {
                 a.count++;
               }
             })
 
-            var a = companies.find(f => f.manufacturer == res.manufacturer)
-            if (typeof a == "undefined") {
-              companies.push({ manufacturer: res.manufacturer, count: 1 })
+            var b = companies.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase())
+            if (typeof b == "undefined") {
+              companies.push({ manufacturer: res.manufacturer, count: 1, isChecked: false })
             }
             else {
-              a.count++;
+              b.count++;
             }
           })
           this.setState({
@@ -76,11 +76,12 @@ class Market extends React.Component {
         },
         (error) => {
           this.setState({
-            tagsDataLoaded: true,
+            pageCount: 0,
             error
           });
         }
       )
+
   }
 
 
@@ -91,21 +92,21 @@ class Market extends React.Component {
     // _sort=added&_order=desc Çoktan aza ücret
     // _sort=added&_order=asc azdan çoka ücret
     var query = ""
-    if (value == 'priceAsc') {
+    if (value === 'priceAsc') {
       query = '&_sort=price&_order=asc'
-    } else if (value == 'priceDesc') {
+    } else if (value === 'priceDesc') {
       query = '&_sort=price&_order=desc'
-    } else if (value == 'addedAsc') {
+    } else if (value === 'addedAsc') {
       query = '&_sort=added&_order=asc '
-    } else if (value == 'addedDesc') {
+    } else if (value === 'addedDesc') {
       query = '&_sort=added&_order=desc'
     }
-    this.state.orderBy = query
+    this.setState({ orderBy: query })
     this.getProductListFilter(true)
   }
 
   onPageChangeEvent(page) {
-    this.state.currentPage = page
+    this.setState({ currentPage: page })
     this.getProductListFilter()
   }
 
@@ -119,7 +120,7 @@ class Market extends React.Component {
         query += "&manufacturer_like=" + el
       })
     }
-    this.state.brandQuery = query
+    this.setState({ brandQuery: query })
     this.getProductListFilter(true)
   }
 
@@ -133,110 +134,61 @@ class Market extends React.Component {
         query += "&tags_like=" + el
       })
     }
-    this.state.tagQuery = query
+    this.setState({ tagQuery: query })
     this.getProductListFilter(true)
+  }
+
+  getData() {
+    getItemsByPage(this.state.currentPage, this.state.currentPageSize, this.state.orderBy, this.state.activeTypeQuery, this.state.brandQuery, this.state.tagQuery)
+      .then((result) => {
+        this.setState({
+          isLoaded: true,
+          items: result
+        });
+      },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        })
+
+    getItems(this.state.orderBy, this.state.activeTypeQuery, this.state.brandQuery, this.state.tagQuery)
+      .then(
+        (result) => {
+          var page = 0
+          if ((result.length / this.state.currentPageSize) % this.state.currentPageSize > 1) {
+            page = (Math.ceil(result.length / this.state.currentPageSize) + 1)
+          } else {
+            page = (Math.ceil(result.length / this.state.currentPageSize))
+          }
+
+          this.setState({
+            pageCount: page,
+          });
+        },
+        (error) => {
+          this.setState({
+            pageCount: 0,
+            error
+          });
+        }
+      )
+
   }
 
   getProductListFilter(refresh = false) {
     if (refresh) {
       this.setState({ isLoaded: false, currentPage: 1 }, () => {
-        var url = "http://localhost:3001/items?_page=" + this.state.currentPage + "&_limit=" + this.state.currentPageSize + this.state.activeTypeQuery + this.state.orderBy + this.state.brandQuery + this.state.tagQuery
-
-        fetch(url)
-          .then(res => res.json())
-          .then(
-            (result) => {
-              this.setState({
-                isLoaded: true,
-                items: result
-              });
-            },
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-          )
-
-        var url2 = "http://localhost:3001/items?" + this.state.activeTypeQuery + this.state.orderBy + this.state.brandQuery + this.state.tagQuery
-        console.log(url2)
-        fetch(url2)
-          .then(res => res.json())
-          .then(
-            (result) => {
-              var page = 0
-              if ((result.length / this.state.currentPageSize) % this.state.currentPageSize > 1) {
-                page = (Math.ceil(result.length / this.state.currentPageSize) + 1)
-              } else {
-                page = (Math.ceil(result.length / this.state.currentPageSize))
-              }
-
-              this.setState({
-                pageCount: page,
-              });
-            },
-            (error) => {
-              this.setState({
-                pageCount: 0,
-                error
-              });
-            }
-          )
+        this.getData()
       })
     } else {
-      var url = "http://localhost:3001/items?_page=" + this.state.currentPage + "&_limit=" + this.state.currentPageSize + this.state.activeTypeQuery + this.state.orderBy + this.state.brandQuery + this.state.tagQuery
-
-      fetch(url)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            this.setState({
-              isLoaded: true,
-              items: result
-            });
-          },
-          (error) => {
-            this.setState({
-              isLoaded: true,
-              error
-            });
-          }
-        )
-
-      var url2 = "http://localhost:3001/items?" + this.state.activeTypeQuery + this.state.orderBy + this.state.brandQuery + this.state.tagQuery
-      console.log(url2)
-      fetch(url2)
-        .then(res => res.json())
-        .then(
-          (result) => {
-            var page = 0
-            if ((result.length / this.state.currentPageSize) % this.state.currentPageSize > 1) {
-              page = (Math.ceil(result.length / this.state.currentPageSize) + 1)
-            } else {
-              page = (Math.ceil(result.length / this.state.currentPageSize))
-            }
-
-            this.setState({
-              pageCount: page,
-            });
-          },
-          (error) => {
-            this.setState({
-              pageCount: 0,
-              error
-            });
-          }
-        )
+      this.getData()
     }
-
-
   }
 
   onItemTypeSelect(event) {
-    this.setState({ activeType: event })
-
-    this.state.activeTypeQuery = '&itemType_like=' + event
+    this.setState({ activeType: event,activeTypeQuery: '&itemType_like=' + event })
     this.getProductListFilter(true)
   }
 
@@ -273,15 +225,15 @@ class Market extends React.Component {
 
             </div>
             <div className="Layout-Center">
-              <div className="flex-column">
+              <div className="flex-column layout-center-container">
                 <div className="header">
                   Products
                 </div>
                 <div className="flex-row chip-container">
-                  <div className={this.state.activeType == 'mug' ? ('chips chips-active') : ('chips')} onClick={() => { this.onItemTypeSelect('mug') }}>
+                  <div className={this.state.activeType === 'mug' ? ('chips chips-active') : ('chips')} onClick={() => { this.onItemTypeSelect('mug') }}>
                     Mug
                   </div>
-                  <div className={this.state.activeType == 'shirt' ? ('chips chips-active') : ('chips')} onClick={() => { this.onItemTypeSelect('shirt') }}>
+                  <div className={this.state.activeType === 'shirt' ? ('chips chips-active') : ('chips')} onClick={() => { this.onItemTypeSelect('shirt') }}>
                     Shirt
                   </div>
                 </div>

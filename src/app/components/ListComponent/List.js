@@ -16,48 +16,6 @@ class List extends React.Component {
         this.onPageChangeEvent = this.onPageChangeEvent.bind(this);
     }
 
-    getProductList() {
-        fetch("http://localhost:3001/items?_page=" + this.state.currentPage + "&_limit=" + this.state.currentPageSize)
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        isLoaded: true,
-                        items: result
-                    }, () => { console.log(result) });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
-
-    getProductCounts() {
-        fetch("http://localhost:3001/items")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    var count = result.length
-                    this.setState({
-                        totalPageCount: (Math.ceil(count / this.state.currentPageSize) + 1)
-                    });
-                },
-                (error) => {
-                    this.setState({
-                        isLoaded: true,
-                        error
-                    });
-                }
-            )
-    }
-
-    componentDidMount() {
-        this.getProductCounts();
-    }
-
     onPageChangeEvent($event) {
         var page = $event.selected
         this.setState({ currentPage: page })
@@ -78,7 +36,7 @@ class List extends React.Component {
 
                             ))
                         ) : (
-                            <div>Loading</div>
+                            null
                         )
 
                     }
@@ -100,7 +58,19 @@ class List extends React.Component {
                             />
                         </div>
                     ) : (
-                        <div>Loading</div>
+                        null
+                    )
+
+                }
+
+                {
+                    this.props.isLoaded === false ? (
+                        <div className="spinner-container">
+                            <div className="loading-spinner">
+                            </div>
+                        </div>
+                    ) : (
+                        null
                     )
 
                 }
