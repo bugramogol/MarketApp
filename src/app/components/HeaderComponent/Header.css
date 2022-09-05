@@ -68,7 +68,7 @@
 .Basket {
     background: #147594;
     width: 129px;
-    font-family: 'Open Sans';
+    font-family: 'Helvetica';
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
@@ -80,6 +80,10 @@
     justify-content: center;
     height: 76px;
     float: right;
+}
+
+.image-content{
+    margin-right: 8px;
 }
 
 

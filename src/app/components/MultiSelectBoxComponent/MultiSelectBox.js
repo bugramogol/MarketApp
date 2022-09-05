@@ -46,7 +46,6 @@ class MultiSelectBox extends Component {
 
     valueChanged(event, item, index) {
 
-        console.log(item)
         var value = event.target.value
         var isChecked = event.target.checked
 

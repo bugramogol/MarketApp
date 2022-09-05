@@ -44,11 +44,8 @@ class ProductCard extends React.Component {
                     <div className='product-price-label'>₺ {this.state.product.price}</div>
                     <div className='product-name-label'>{this.state.product.name}</div>
                     <button className="product-add-button" onClick={() => {
-                        console.log("click");
-
                         this.props.onPriceAddition(this.state.product.price)
                         this.props.onPushToBasket(this.state.product);
-                        console.log(this.props)
                     }
                     }>Add</button>
                 </div>

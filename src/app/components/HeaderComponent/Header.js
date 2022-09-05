@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import './Header.css';
-import Logo from '../../../assets/logo/logo.png';
+import Logo from '../../../assets/logo/logo.svg';
 import Basket from '../../../assets/images/basket.svg';
 class Header extends React.Component {
 
@@ -18,7 +18,7 @@ class Header extends React.Component {
             </div>
             <div className='basket-containerr'>
               <div className='Basket'>
-                <div>
+                <div className='image-content'>
                   <img src={Basket} className='basket-icon' alt='Basket' />
                 </div>
                 ₺ {this.props.price.toFixed(2)}

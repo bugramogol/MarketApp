@@ -111,7 +111,6 @@ class Market extends React.Component {
   }
 
   onBrandChangeEvent(value) {
-    console.log(value)
     var query = ''
     if (value.includes('All')) {
       query = ''
@@ -125,7 +124,6 @@ class Market extends React.Component {
   }
 
   onTagChangeEvent(value) {
-    console.log(value)
     var query = ''
     if (value.includes('All')) {
       query = ''
