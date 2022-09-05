@@ -1,17 +1,23 @@
 {
   "files": {
-    "main.css": "/MarketApp/static/css/main.5bd6cd54.css",
-    "main.js": "/MarketApp/static/js/main.2760ed92.js",
+    "main.css": "/MarketApp/static/css/main.0e30401f.css",
+    "main.js": "/MarketApp/static/js/main.ef3b4f51.js",
     "static/js/787.b3520e1f.chunk.js": "/MarketApp/static/js/787.b3520e1f.chunk.js",
     "static/media/OpenSans-Regular.ttf": "/MarketApp/static/media/OpenSans-Regular.77c09223204154ae8d43.ttf",
+    "static/media/mug.jpg": "/MarketApp/static/media/mug.ccecb68bc6f464ef9160.jpg",
+    "static/media/shirt.jpg": "/MarketApp/static/media/shirt.923e18f0127d70ecfc32.jpg",
     "static/media/logo.svg": "/MarketApp/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
     "index.html": "/MarketApp/index.html",
-    "main.5bd6cd54.css.map": "/MarketApp/static/css/main.5bd6cd54.css.map",
-    "main.2760ed92.js.map": "/MarketApp/static/js/main.2760ed92.js.map",
+    "static/media/plus.svg": "/MarketApp/static/media/plus.a8a738399267df30bd6747acf33cde73.svg",
+    "static/media/basket.svg": "/MarketApp/static/media/basket.f201a39622b1490bbc466e072d2db9ce.svg",
+    "static/media/checkbox.svg": "/MarketApp/static/media/checkbox.d7bbae6df23db5417396b35a30cf73db.svg",
+    "static/media/minus.svg": "/MarketApp/static/media/minus.861d9216459103c9a036cf75d9d7f4de.svg",
+    "main.0e30401f.css.map": "/MarketApp/static/css/main.0e30401f.css.map",
+    "main.ef3b4f51.js.map": "/MarketApp/static/js/main.ef3b4f51.js.map",
     "787.b3520e1f.chunk.js.map": "/MarketApp/static/js/787.b3520e1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5bd6cd54.css",
-    "static/js/main.2760ed92.js"
+    "static/css/main.0e30401f.css",
+    "static/js/main.ef3b4f51.js"
   ]
 }
