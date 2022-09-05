@@ -1,19 +1,19 @@
 .Main-Container {
-
-    /*border: 1px solid;*/
     margin: 16px;
-    margin-left: 104px;
-    margin-right: 104px;
-    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1440px;
 }
 
 .Layout-Container {
     display: flex;
     flex-direction: row;
+    margin-left: 104px;
+    margin-right: 104px;
 }
 
 .Layout-Left {
-    width: 214px;
+    width: 296px;
     /*border: 1px solid;*/
     justify-content: left;
     align-items: flex-start;
@@ -22,9 +22,116 @@
 .Layout-Center {
     flex: 1;
     /*border: 1px solid;*/
+    display: flex;
+    justify-content: center;
 }
 
 .Layout-Right {
-    width: 318.25px;
+    width: 296px;
     /*border: 1px solid;*/
+
+}
+
+.Layout-Left-Content {
+    margin-bottom: 24px;
+}
+
+.header {
+    /* Heading / H4 */
+
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    /* identical to box height, or 130% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.25px;
+
+    /* Black / 500 */
+
+    color: #6F6F6F;
+    margin: 8px;
+
+}
+
+.chip-container {
+    margin: 8px;
+}
+
+.chips-active {
+    background: #1EA4CE !important;
+    color: #F2F0FD !important;
+}
+
+.chips {
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 16px;
+    gap: 10px;
+
+    width: 61px;
+    height: 30px;
+    border-radius: 2px;
+    margin-right: 8px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    justify-content: center;
+    background: #F2F0FD;
+    color: #1EA4CE;
+}
+
+@media (max-width: 1187px) {
+    .Layout-Right {
+        display: none;
+    }
+}
+
+@media (max-width:880px) and (min-width:300px) {
+    .Layout-Right {
+        display: none;
+    }
+
+    .Layout-Left {
+        margin-right: auto;
+    }
+
+    .Layout-Container {
+        display: block;
+        margin-left: 32px;
+        margin-right: 32px;
+    }
+
+    .List-Container {
+        width: 100%;
+        margin: 8px 0px 0px 0px !important;
+        margin-top: 8px;
+    }
+
+    .Layout-Center {
+        display: block;
+    }
+
+    .chip-container {
+        margin: 0px;
+    }
+
+    .Product-main-Container {
+        max-width: none;
+        width: 100%;
+        margin: 12px auto 12px auto !important;
+    }
+
+
+    .header {
+        margin: 0px !important
+    }
 }

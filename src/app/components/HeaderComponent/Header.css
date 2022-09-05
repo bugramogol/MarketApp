@@ -1,8 +1,8 @@
 @import url('../../../App.css');
 
 /* Header */
-.Header{
-    height: 76.64px;
+.Header {
+    height: 76px;
     background: #1EA4CE;
     flex: 1;
     justify-content: center;
@@ -10,32 +10,62 @@
 }
 
 /* Header Background */
-.HeaderBackground{
+.HeaderBackground {
     background: #1EA4CE;
 }
 
 /* Background */
-.Background{
+.Background {
     position: absolute;
     left: 83.82%;
     right: 7.22%;
     top: 0%;
     bottom: 94.83%;
-    
+
     background: #147594;
 }
 
 /* Logo */
-.Logo{
+.Logo {
     width: 141.25px;
     height: 40.32px;
 }
 
+.basket-icon {
+    width: 24px;
+    height: 24px;
+}
+
 /* Basket */
-.Basket{
+.Basket {
+    background: #147594;
+    width: 129px;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    align-items: center;
+    letter-spacing: 0.16px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
     position: absolute;
-    left: 83.82%;
-    right: 7.22%;
-    top: 0%;
-    bottom: 94.83%;
+    right: 104px;
+    height: 76px;
+}
+
+
+@media (max-width:880px) and (min-width:300px) {
+    .Header{
+        justify-content: flex-start;
+    }
+
+    .header-container{
+        margin-left: 32px;
+    }
+
+    .Basket{
+        right: 0px;
+    }
 }

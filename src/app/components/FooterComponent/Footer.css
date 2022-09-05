@@ -1,7 +1,7 @@
-.Footer{
+.Footer {
     height: 25px;
     margin-bottom: 23px;
-    position: absolute;
+    position: relative;
     bottom: 0px;
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.Footer-Text{
+.Footer-Text {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -19,6 +19,6 @@
     margin-right: 8px;
 }
 
-.Footer-Color{
+.Footer-Color {
     color: #1EA4CE;
 }

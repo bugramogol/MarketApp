@@ -1,9 +1,16 @@
 @import url('./assets/css/default.css');
 
+html {
+  width: 100%;
+}
 
+body {
+  width: 100%;
+}
 
 .App {
   background-color: #FAFAFA;
+  width: 100%;
   min-height: 100vh;
 }
 

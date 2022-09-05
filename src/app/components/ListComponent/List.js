@@ -8,14 +8,12 @@ class List extends React.Component {
         super(props);
         this.state = {
             selectedOption: null,
-            items: [],
-            isLoaded: false,
             currentPage: 1,
             currentPageSize: 16,
             totalPageCount: 0,
         };
 
-        this.handlePageClick = this.handlePageClick.bind(this);
+        this.onPageChangeEvent = this.onPageChangeEvent.bind(this);
     }
 
     getProductList() {
@@ -43,10 +41,9 @@ class List extends React.Component {
             .then(
                 (result) => {
                     var count = result.length
-
                     this.setState({
-                        totalPageCount: (Math.ceil(count / 16) + 1 )
-                    }, () => { });
+                        totalPageCount: (Math.ceil(count / this.state.currentPageSize) + 1)
+                    });
                 },
                 (error) => {
                     this.setState({
@@ -58,32 +55,26 @@ class List extends React.Component {
     }
 
     componentDidMount() {
-
-        this.getProductList();
         this.getProductCounts();
-
     }
 
-    handlePageClick($event) {
-        debugger;
+    onPageChangeEvent($event) {
         var page = $event.selected
-        this.setState({
-            currentPage : page,
-            //isLoaded: false
-        }, () => { 
-            this.getProductList()
-        })
+        this.setState({ currentPage: page })
+
+        this.props.onPageChangeEvent(page)
     }
 
     render() {
         return (
-            <div className="Main-Container">
+            <div className="Main-Container-2">
+
                 <div className="List-Container">
                     {
-                        !!this.state.isLoaded ? (
-                            this.state.items.map((item, index) => (
+                        !!this.props.isLoaded ? (
+                            this.props.items.map((item, index) => (
 
-                                <ProductCard product={item} />
+                                <ProductCard product={item} key={item.description} />
 
                             ))
                         ) : (
@@ -94,16 +85,27 @@ class List extends React.Component {
 
                 </div>
 
-                <ReactPaginate
-                    className='paginator'
-                    breakLabel='...'
-                    nextLabel='Next >'
-                    onPageChange={this.handlePageClick}
-                    pageRangeDisplayed={3}
-                    pageCount={this.state.totalPageCount}
-                    previousLabel='< Prev'
-                    renderOnZeroPageCount={null}
-                />
+                {
+                    !!this.props.isLoaded ? (
+                        <div className='paginator-container'>
+                            <ReactPaginate
+                                className='paginator'
+                                breakLabel='...'
+                                nextLabel='Next   >'
+                                onPageChange={this.onPageChangeEvent}
+                                pageRangeDisplayed={3}
+                                pageCount={this.props.pageCount}
+                                previousLabel='<   Prev'
+                                renderOnZeroPageCount={null}
+                            />
+                        </div>
+                    ) : (
+                        <div>Loading</div>
+                    )
+
+                }
+
+
             </div>
         );
     }

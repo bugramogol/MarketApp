@@ -1,9 +1,12 @@
-.Main-Container {}
+.Main-Container-2 {
+    max-width: 608px;
+}
 
 .List-Container {
     display: flex;
     margin: 8px;
     flex-flow: row wrap;
+    background: #ffffff;
 }
 
 .paginator {
@@ -16,18 +19,55 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
-
     color: #697488;
+    padding: 0px;
+    cursor: pointer;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+
+    -ms-user-select: none;
+    user-select: none;
+    ;
 
 }
 
-.paginator li{
+.paginator li {
     width: 475px;
     height: 40px;
 
 }
 
-.paginator a{
+.paginator .previous a {
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #1EA4CE;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    min-width: 62px;
+}
+
+.paginator .next a {
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #697488;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    min-width: 62px;
+}
+
+
+.paginator a {
     justify-content: center;
     display: flex;
     height: 100%;
@@ -48,4 +88,10 @@
 
 .paginator :focus-visible {
     outline: none !important;
+}
+
+.paginator-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }

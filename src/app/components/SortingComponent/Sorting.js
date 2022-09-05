@@ -11,26 +11,26 @@ class Sorting extends React.Component {
     }
 
     onSortingRadioValueChange(event) {
-        console.log(event);
         this.setState({
             selectedOption: event.target.value,
         });
+        this.props.onSortingRadioValueChange(event.target.value)
     }
 
     render() {
         return (
             <div className="Sorting-Container">
                 <div className='Form-Label Form-Label-Color'>
-                    Header
+                    Sorting
                 </div>
                 <form className='Form'>
-                    
+
                     <div className="radio">
                         <label className="Radio-Label Radio-Label-Color">
                             <input
                                 type="radio"
-                                value="Male"
-                                checked={this.state.selectedOption === "Male"}
+                                value="priceAsc"
+                                checked={this.state.selectedOption === "priceAsc"}
                                 onChange={this.onSortingRadioValueChange}
                             />
                             Price low to high
@@ -40,8 +40,8 @@ class Sorting extends React.Component {
                         <label className="Radio-Label Radio-Label-Color">
                             <input
                                 type="radio"
-                                value="Female"
-                                checked={this.state.selectedOption === "Female"}
+                                value="priceDesc"
+                                checked={this.state.selectedOption === "priceDesc"}
                                 onChange={this.onSortingRadioValueChange}
                             />
                             Price high to low
@@ -51,8 +51,8 @@ class Sorting extends React.Component {
                         <label className="Radio-Label Radio-Label-Color">
                             <input
                                 type="radio"
-                                value="Other"
-                                checked={this.state.selectedOption === "Other"}
+                                value="addedDesc"
+                                checked={this.state.selectedOption === "addedDesc"}
                                 onChange={this.onSortingRadioValueChange}
                             />
                             New to old
@@ -62,16 +62,15 @@ class Sorting extends React.Component {
                         <label className="Radio-Label Radio-Label-Color">
                             <input
                                 type="radio"
-                                value="Other"
-                                checked={this.state.selectedOption === "Other"}
+                                value="addedAsc"
+                                checked={this.state.selectedOption === "addedAsc"}
                                 onChange={this.onSortingRadioValueChange}
                             />
                             Old to new
                         </label>
                     </div>
-                    
+
                 </form>
-                <div>Selected option is : {this.state.selectedOption}</div>
 
             </div>
         );

@@ -1,6 +1,10 @@
-.Sorting-Container{
-    display: block;
+.Sorting-Container {
+    width: 296px;
+    height: 214px;
+    display: flex;
+    flex-direction: column
 }
+
 .flex {
     flex: 1;
 }
@@ -10,6 +14,8 @@
     background: #FFFFFF;
     box-shadow: 0px 6px 24px rgba(93, 62, 188, 0.04);
     border-radius: 2px;
+    display: flex;
+    flex-direction: column;
 }
 
 .Form-Label {
@@ -21,7 +27,7 @@
     margin-bottom: 12px;
 }
 
-.Form-Label-Color{
+.Form-Label-Color {
     color: #697488;
 }
 
@@ -30,16 +36,17 @@ input {
     border: 2px solid #1EA4CE;
     border-radius: 17.5px;
 }
-.radio{
+
+.radio {
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0px;
     gap: 12px;
-
+    flex: 0.25
 }
 
-.Radio-Label{
+.Radio-Label {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -47,6 +54,6 @@ input {
     line-height: 18px;
 }
 
-.Radio-Label-Color{
+.Radio-Label-Color {
     color: #525252;
 }
