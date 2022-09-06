@@ -1,13 +1,11 @@
 export default function price(state = 0, action) {
     switch (action.type) {
         case 'ADDITION':
-            debugger
-            var val = state + action.value
-            return val
+            state = state + action.value
+            return state
         case 'EXTRACTION':
-            debugger
-            var val = state - action.value
-            return val
+            state = state - action.value
+            return state
         default:
             return state
     }

@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
   };
 }
 const mapDispatchToProps = dispatch => ({
-  onPushToBasket: value => dispatch({ type: 'ADDTOBASKET', value: value }),
+  onPushToBasket: value => dispatch({ type: 'ADDPRODUCTTOBASKET', value: value }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

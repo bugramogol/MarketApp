@@ -25,14 +25,14 @@ class ProductCard extends React.Component {
                 <div className="product-container">
                     <div className="product-image-container">
                         {
-                            this.state.product.itemType == "mug" ? (
-                                <img src={MugIcon} className='product-image' />
+                            this.state.product.itemType === "mug" ? (
+                                <img src={MugIcon} className='product-image' alt='mug-image' />
                             ) : (null)
                         }
 
                         {
-                            this.state.product.itemType == "shirt" ? (
-                                <img src={ShirtIcon} className='product-image' />
+                            this.state.product.itemType === "shirt" ? (
+                                <img src={ShirtIcon} className='product-image' alt='shirt-image' />
                             ) : (null)
                         }
                     </div>
@@ -56,7 +56,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
     onPushProductBasket: value =>
-        dispatch({ type: 'ADDTOBASKET', value: value }),
+        dispatch({ type: 'ADDPRODUCTTOBASKET', value: value }),
     onPriceAddition: value =>
         dispatch({ type: 'ADDITION', value: value }),
     onPriceExtraction: value =>

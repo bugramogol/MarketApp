@@ -112,11 +112,11 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = dispatch => ({
     onPushToBasket: value =>
-        dispatch({ type: 'ADDTOBASKET', value: value }),
+        dispatch({ type: 'ADDPRODUCTTOBASKET', value: value }),
     onDeleteFromBasket: value =>
-        dispatch({ type: 'DELETEFROMBASKET', value: value }),
+        dispatch({ type: 'DELETEPRODUCTFROMBASKET', value: value }),
     onChangeCountByIndexForBasket: value =>
-        dispatch({ type: 'UPDATECOUNTBYINDEX', value: value }),
+        dispatch({ type: 'UPDATECOUNTOFPRODUCTSBYINDEX', value: value }),
     onPriceAddition: value =>
         dispatch({ type: 'ADDITION', value: value }),
     onPriceExtraction: value =>

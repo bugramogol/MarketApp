@@ -44,23 +44,27 @@ class MarketComponent extends React.Component {
   }
 
   getBrandAndTagLists() {
+
     getItems()
       .then(
         (response) => {
+          debugger
           var tags = []
           var brands = []
           response.forEach(res => {
-            res.tags.forEach(el => {
-              var a = tags.find(f => f.tag.toLowerCase() === el.toLowerCase())
-              if (typeof a == "undefined") {
-                tags.push({ tag: el, count: 1, isChecked: false })
-              }
-              else {
-                a.count++;
-              }
-            })
+            if (res.itemType == this.state.selectedItemType) {
+              res.tags.forEach(el => {
+                var a = tags.find(f => f.tag.toLowerCase() === el.toLowerCase())
+                if (typeof a == "undefined") {
+                  tags.push({ tag: el, count: 1, isChecked: false })
+                }
+                else {
+                  a.count++;
+                }
+              })
+            }
 
-            var b = brands.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase())
+            var b = brands.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase() && res.itemType == this.state.selectedItemType)
             if (typeof b == "undefined") {
               brands.push({ manufacturer: res.manufacturer, count: 1, isChecked: false })
             }
@@ -72,7 +76,10 @@ class MarketComponent extends React.Component {
             tagsDataLoaded: true,
             tagsData: tags,
             brandsDataLoaded: true,
-            brandsData: brands
+            brandsData: brands,
+            orderByQuery: '',
+            brandQuery: '',
+            tagQuery: '',
           });
         },
         (error) => {
@@ -102,8 +109,10 @@ class MarketComponent extends React.Component {
 
   /* On Page Selection Change Event */
   onPageChangeEvent(page) {
-    this.setState({ currentPage: page })
-    this.getProductListFilter()
+    console.log(page)
+    this.setState({ currentPage: page }, () => {
+      this.getProductListFilter()
+    })
   }
 
   /* On Brand Selection Change Event */
@@ -136,7 +145,8 @@ class MarketComponent extends React.Component {
 
   /* On Item Type Selection Change Event */
   onItemTypeSelect(event) {
-    this.setState({ selectedItemType: event, itemTypeQuery: '&itemType_like=' + event })
+    this.setState({ selectedItemType: event, itemTypeQuery: '&q=' + event })
+    this.getBrandAndTagLists()
     this.getProductListFilter(true)
   }
 
@@ -158,9 +168,10 @@ class MarketComponent extends React.Component {
     getItems(this.state.orderByQuery, this.state.itemTypeQuery, this.state.brandQuery, this.state.tagQuery)
       .then(
         (result) => {
+          debugger
           var page = 0
-          if ((result.length / this.state.currentPageSize) % this.state.currentPageSize > 1) {
-            page = (Math.ceil(result.length / this.state.currentPageSize) + 1)
+          if ((result.length / this.state.currentPageSize) < 1) {
+            page = 1
           } else {
             page = (Math.ceil(result.length / this.state.currentPageSize))
           }
@@ -262,9 +273,9 @@ const mapStateToProps = (state) => {
   };
 }
 const mapDispatchToProps = dispatch => ({
-  onPushToBasket: value => dispatch({ type: 'ADDTOBASKET', value: value }),
-  onDeleteFromBasket: value => dispatch({ type: 'DELETEFROMBASKET', value: value }),
-  onChangeCountByIndexForBasket: value => dispatch({ type: 'UPDATECOUNTBYINDEX', value: value }),
+  onPushToBasket: value => dispatch({ type: 'ADDPRODUCTTOBASKET', value: value }),
+  onDeleteFromBasket: value => dispatch({ type: 'DELETEPRODUCTFROMBASKET', value: value }),
+  onChangeCountByIndexForBasket: value => dispatch({ type: 'UPDATECOUNTOFPRODUCTSBYINDEX', value: value }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MarketComponent);

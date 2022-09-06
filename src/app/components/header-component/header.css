@@ -59,9 +59,11 @@
 
 .header-cont {
     display: flex;
-    margin-left: 104px;
-    margin-right: 104px;
     flex: 1;
+    padding-left: 104px;
+    background-color: red;
+    padding-right: 104px;
+    background: #1EA4CE;
 }
 
 /* Basket */

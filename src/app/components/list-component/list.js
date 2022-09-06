@@ -18,9 +18,9 @@ class List extends React.Component {
 
     onPageChangeEvent($event) {
 
-        this.setState({ currentPage:  $event.selected })
+        this.setState({ currentPage: $event.selected + 1 })
 
-        this.props.onPageChangeEvent( $event.selected)
+        this.props.onPageChangeEvent(($event.selected + 1))
     }
 
     render() {
