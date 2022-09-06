@@ -1,6 +1,0 @@
-export const INCREMENT = 'INCREMENT';
-export const DECREASE = 'DECREASE';
-export const ADDTOBASKET = 'ADDTOBASKET'
-export const REMOVEFROMBASKET = 'REMOVEFROMBASKET'
-export const EXTRACTION = 'EXTRACTION'
-export const ADDITION = 'ADDITION'

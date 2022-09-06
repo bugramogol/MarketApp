@@ -1,15 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
-import Header  from './app/components/HeaderComponent/Header'
-import Footer  from './app/components/FooterComponent/Footer'
-import Market from './app/pages/MarketComponent/Market';
-
+import HomePage from './app/pages/home-page/home';
+import { Link, Route, Switch } from "react-router-dom";
+import Sorting from './app/components/sorting-component/sorting';
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Market />
-      <Footer />
+    <div>
+      <Switch>
+        <Route path="/">
+          <HomePage />
+        </Route>
+      </Switch>
     </div>
   );
 }

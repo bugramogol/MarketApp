@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
-import './Header.css';
+import './header.css';
 import Logo from '../../../assets/logo/logo.svg';
 import Basket from '../../../assets/images/basket.svg';
 class Header extends React.Component {
@@ -21,7 +21,7 @@ class Header extends React.Component {
                 <div className='image-content'>
                   <img src={Basket} className='basket-icon' alt='Basket' />
                 </div>
-                ₺ {this.props.price.toFixed(2)}
+                ₺ {Number(this.props.price).toFixed(2)}
               </div>
             </div>
           </div>

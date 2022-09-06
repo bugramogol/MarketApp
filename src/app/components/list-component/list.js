@@ -1,7 +1,7 @@
 import React from "react";
 import ReactPaginate from "react-paginate";
-import ProductCard from "../ProductCardComponent/ProductCard";
-import "./List.css";
+import ProductCard from "../productcard-component/productcard";
+import "./list.css";
 
 class List extends React.Component {
     constructor(props) {
@@ -17,65 +17,49 @@ class List extends React.Component {
     }
 
     onPageChangeEvent($event) {
-        var page = $event.selected
-        this.setState({ currentPage: page })
 
-        this.props.onPageChangeEvent(page)
+        this.setState({ currentPage:  $event.selected })
+
+        this.props.onPageChangeEvent( $event.selected)
     }
 
     render() {
         return (
             <div className="Main-Container-2">
-
                 <div className="List-Container">
                     {
                         !!this.props.isLoaded ? (
                             this.props.items.map((item, index) => (
-
                                 <ProductCard product={item} key={item.description} />
-
                             ))
-                        ) : (
-                            null
-                        )
-
+                        ) : (null)
                     }
-
                 </div>
-
                 {
                     !!this.props.isLoaded ? (
                         <div className='paginator-container'>
                             <ReactPaginate
                                 className='paginator'
                                 breakLabel='...'
-                                nextLabel='Next   >'
+                                nextLabel='Next >'
                                 onPageChange={this.onPageChangeEvent}
                                 pageRangeDisplayed={3}
                                 pageCount={this.props.pageCount}
-                                previousLabel='<   Prev'
+                                previousLabel='< Prev'
                                 renderOnZeroPageCount={null}
                             />
                         </div>
-                    ) : (
-                        null
-                    )
+                    ) : (null)
 
                 }
-
                 {
                     this.props.isLoaded === false ? (
                         <div className="spinner-container">
                             <div className="loading-spinner">
                             </div>
                         </div>
-                    ) : (
-                        null
-                    )
-
+                    ) : (null)
                 }
-
-
             </div>
         );
     }

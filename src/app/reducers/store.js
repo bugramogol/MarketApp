@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import basket from '../reducers/basket';
-import price from '../reducers/price';
+import basket from './basket';
+import price from './price';
 
 
 export const store = configureStore({

@@ -1,21 +1,16 @@
 import React from "react";
-import "./ProductCard.css";
-import Mug from '../../../assets/images/mug.jpg';
-import Shirt from '../../../assets/images/shirt.jpg';
 import { connect } from "react-redux";
-import { DECREASE, INCREMENT } from "./../../../reducers/actionTypes"
+
+import MugIcon from '../../../assets/images/mug.jpg';
+import ShirtIcon from '../../../assets/images/shirt.jpg';
+import "./productcard.css";
+
 class ProductCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             product: props.product,
-
         };
-
-    }
-
-    componentDidMount() {
-
     }
 
     componentDidUpdate(prevProps) {
@@ -25,32 +20,32 @@ class ProductCard extends React.Component {
     }
 
     render() {
-
         return (
             <div className="Product-main-Container">
                 <div className="product-container">
                     <div className="product-image-container">
-
                         {
                             this.state.product.itemType == "mug" ? (
-                                <img src={Mug} className='product-image' />
-                            ) : (
-                                <img src={Shirt} className='product-image' />
-                            )
+                                <img src={MugIcon} className='product-image' />
+                            ) : (null)
                         }
 
-
+                        {
+                            this.state.product.itemType == "shirt" ? (
+                                <img src={ShirtIcon} className='product-image' />
+                            ) : (null)
+                        }
                     </div>
                     <div className='product-price-label'>₺ {this.state.product.price}</div>
                     <div className='product-name-label'>{this.state.product.name}</div>
                     <button className="product-add-button" onClick={() => {
                         this.props.onPriceAddition(this.state.product.price)
-                        this.props.onPushToBasket(this.state.product);
-                    }
-                    }>Add</button>
+                        this.props.onPushProductBasket(this.state.product);
+                    }}>
+                        Add
+                    </button>
                 </div>
             </div>
-
         );
     }
 }
@@ -58,11 +53,14 @@ class ProductCard extends React.Component {
 const mapStateToProps = (state) => {
     return {};
 }
+
 const mapDispatchToProps = dispatch => ({
-    onPushToBasket: value =>
+    onPushProductBasket: value =>
         dispatch({ type: 'ADDTOBASKET', value: value }),
     onPriceAddition: value =>
         dispatch({ type: 'ADDITION', value: value }),
+    onPriceExtraction: value =>
+        dispatch({ type: 'EXTRACTION', value: value }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);

@@ -1,20 +1,18 @@
 import React from "react";
-import "./Sorting.css";
+import "./sorting.css";
 
 class Sorting extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedOption: null,
-            selectedValue: null
+            selectedOption: null
         };
-        this.onSortingRadioValueChange = this.onSortingRadioValueChange.bind(this);
+        this.onRadioValueChange = this.onRadioValueChange.bind(this);
     }
 
-    onSortingRadioValueChange(event) {
+    onRadioValueChange(event) {
         this.setState({
-            selectedOption: event.target.value,
-            selectedValue: event.target.value
+            selectedOption: event.target.value
         });
         this.props.onSortingRadioValueChange(event.target.value)
     }
@@ -31,7 +29,7 @@ class Sorting extends React.Component {
                     <label className="radio-label">
                         <input
                             type="radio"
-                            onChange={(e) => this.onSortingRadioValueChange(e)}
+                            onChange={(e) => this.onRadioValueChange(e)}
                             value={'priceAsc'}
                             checked={this.state.selectedOption === "priceAsc"}
                             style={{ display: 'none' }}
@@ -56,7 +54,7 @@ class Sorting extends React.Component {
                     <label className="radio-label">
                         <input
                             type="radio"
-                            onChange={(e) => this.onSortingRadioValueChange(e)}
+                            onChange={(e) => this.onRadioValueChange(e)}
                             value={'priceDesc'}
                             checked={this.state.selectedOption === "priceDesc"}
                             style={{ display: 'none' }}
@@ -81,7 +79,7 @@ class Sorting extends React.Component {
                     <label className="radio-label">
                         <input
                             type="radio"
-                            onChange={(e) => this.onSortingRadioValueChange(e)}
+                            onChange={(e) => this.onRadioValueChange(e)}
                             value={'addedDesc'}
                             checked={this.state.selectedOption === "addedDesc"}
                             style={{ display: 'none' }}
@@ -106,7 +104,7 @@ class Sorting extends React.Component {
                     <label className="radio-label">
                         <input
                             type="radio"
-                            onChange={(e) => this.onSortingRadioValueChange(e)}
+                            onChange={(e) => this.onRadioValueChange(e)}
                             value={'addedAsc'}
                             checked={this.state.selectedOption === "addedAsc"}
                             style={{ display: 'none' }}

@@ -1,14 +1,13 @@
-
-import { DECREASE, INCREMENT } from './actionTypes';
-
-
 export default function price(state = 0, action) {
     switch (action.type) {
         case 'ADDITION':
+            debugger
             var val = state + action.value
-            return val 
+            return val
         case 'EXTRACTION':
-            return state
+            debugger
+            var val = state - action.value
+            return val
         default:
             return state
     }

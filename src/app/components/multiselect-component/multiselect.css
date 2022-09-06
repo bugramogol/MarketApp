@@ -1,8 +1,8 @@
-.MultiSelectContainer {
+.multiselect-container {
     width: 296px;
 }
 
-.MultiSelectHeader {
+.multiselect-header-content {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
@@ -12,7 +12,7 @@
     margin-bottom: 12px;
 }
 
-.MultiSelectContent {
+.multiselect-content {
     height: 244px;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
     border-radius: 2px;
 }
 
-.SearchInput {
+.multiselect-search-input {
     height: 48px;
     border: 2px solid #E0E0E0;
     border-radius: 2px;
@@ -29,35 +29,34 @@
     padding-left: 12px;
 }
 
-.list {
+.multiselect-content-items-container {
     flex: 1;
     margin: 0px 24px 17px 17px;
     overflow-y: scroll;
 }
 
 /* width */
-.list::-webkit-scrollbar {
+.multiselect-content-items-container::-webkit-scrollbar {
     width: 4px;
 }
 
 /* Track */
-.list::-webkit-scrollbar-track {
+.multiselect-content-items-container::-webkit-scrollbar-track {
     background: #FFFFFF;
 }
 
 /* Handle */
-.list::-webkit-scrollbar-thumb {
+.multiselect-content-items-container::-webkit-scrollbar-thumb {
     background: #E0E0E0;
     border-radius: 4px;
 }
 
 /* Handle on hover */
-.list::-webkit-scrollbar-thumb:hover {
+.multiselect-content-items-container::-webkit-scrollbar-thumb:hover {
     background: #dddddd;
 }
 
-.checkbox-background {
-
+.multiselect-checkbox-background {
     height: 22px;
     width: 22px;
     background: #FFFFFF;
@@ -69,21 +68,30 @@
     margin: 8px;
 }
 
-.layout-center-container{
-    flex: 1;
+.multiselect-checkbox-background-checked {
+    background: #1EA4CE;
 }
 
-.checkbox-label {
+.multiselect-content-item-label {
     display: flex;
     align-items: center;
     margin-right: 16px;
 }
 
-Input:focus-visible {
-    outline: none;
+.multiselect-content-item-label-content {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.16px;
+    flex: 1;
+    color: #525252;
+    display: flex;
+    flex-direction: row;
 }
 
-.checkbox-count {
+.multiselect-content-item-label-count {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -99,64 +107,7 @@ Input:focus-visible {
     margin-left: 4px;
 }
 
-.checkbox-label-content {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    /* identical to box height, or 129% */
 
-    letter-spacing: 0.16px;
+.layout-center-container {
     flex: 1;
-    /* Black / 600 */
-
-    color: #525252;
-    display: flex;
-    flex-direction: row;
-}
-
-.checked {
-    background: #1EA4CE;
-}
-
-.checkbox-wrapper input[type="checkbox"] {
-    /* removing default appearance */
-    -webkit-appearance: none;
-    appearance: none;
-    /* creating a custom design */
-    width: 1.6em;
-    height: 1.6em;
-    border-radius: 0.15em;
-    margin-right: 0.5em;
-    border: 0.15em solid #007a7e;
-    outline: none;
-    cursor: pointer;
-}
-
-input.checked {
-    background-color: #007a7e;
-    position: relative;
-}
-
-input.checked::before {
-    content: "\2714";
-    font-size: 1.5em;
-    color: #fff;
-    position: absolute;
-    right: 1px;
-    top: -5px;
-}
-
-.checkbox-wrapper input[type="checkbox"]:disabled {
-    border-color: #c0c0c0;
-    background-color: #c0c0c0;
-}
-
-.checkbox-wrapper input[type="checkbox"]:disabled+span {
-    color: #c0c0c0;
-}
-
-.checkbox-wrapper input[type="checkbox"]:focus {
-    box-shadow: 0 0 20px #007a7e;
 }

@@ -28,15 +28,12 @@
 
 .Layout-Center {
     flex: 1;
-    /*border: 1px solid;*/
     display: flex;
     justify-content: center;
 }
 
 .Layout-Right {
     width: 296px;
-    /*border: 1px solid;*/
-
 }
 
 .Layout-Left-Content {
@@ -44,21 +41,14 @@
 }
 
 .header {
-    /* Heading / H4 */
-
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 26px;
-    /* identical to box height, or 130% */
-
     display: flex;
     align-items: center;
     letter-spacing: 0.25px;
-
-    /* Black / 500 */
-
     color: #6F6F6F;
     margin: 8px;
 
@@ -79,7 +69,6 @@
     align-items: center;
     padding: 6px 16px;
     gap: 10px;
-
     width: 61px;
     height: 30px;
     border-radius: 2px;
