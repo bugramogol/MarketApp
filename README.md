@@ -14,6 +14,7 @@ All components have their own .ts,.test,.css files.
 To start a project locally:
 
     - npm install
+    
     - npm start
 
 To test:
