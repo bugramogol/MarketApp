@@ -31,13 +31,13 @@ class ProductCard extends React.Component {
                     <div className="product-content-image-container">
                         {
                             this.state.product.itemType === "mug" ? (
-                                <img src={MugIcon} className='product-image' alt='mug-image' />
+                                <img src={MugIcon} className='product-image' alt='mug' />
                             ) : (null)
                         }
 
                         {
                             this.state.product.itemType === "shirt" ? (
-                                <img src={ShirtIcon} className='product-image' alt='shirt-image' />
+                                <img src={ShirtIcon} className='product-image' alt='shirt' />
                             ) : (null)
                         }
                     </div>

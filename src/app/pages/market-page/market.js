@@ -47,10 +47,10 @@ class MarketComponent extends React.Component {
           var tags = []
           var brands = []
           response.forEach(res => {
-            if (res.itemType == this.state.selectedItemType) {
+            if (res.itemType === this.state.selectedItemType) {
               res.tags.forEach(el => {
                 var findedTag = tags.find(f => f.tag.toLowerCase() === el.toLowerCase())
-                if (typeof findedTag == "undefined") {
+                if (typeof findedTag === "undefined") {
                   tags.push({ tag: el, count: 1, isChecked: false })
                 }
                 else {
@@ -59,8 +59,8 @@ class MarketComponent extends React.Component {
               })
             }
 
-            var findedBrand = brands.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase() && res.itemType == this.state.selectedItemType)
-            if (typeof findedBrand == "undefined") {
+            var findedBrand = brands.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase() && res.itemType === this.state.selectedItemType)
+            if (typeof findedBrand === "undefined") {
               brands.push({ manufacturer: res.manufacturer, count: 1, isChecked: false })
             }
             else {

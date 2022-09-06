@@ -95,7 +95,7 @@ class MultiSelect extends Component {
                                 {
                                     this.state.allValueChecked ? (
                                         <div className="multiselect-checkbox-background multiselect-checkbox-background-checked ">
-                                            <img src={CheckboxIcon} />
+                                            <img src={CheckboxIcon} alt='checkbox' />
                                         </div>
                                     ) : (<div className="multiselect-checkbox-background"></div>)
                                 }
@@ -121,7 +121,7 @@ class MultiSelect extends Component {
                                             {
                                                 item.isChecked ? (
                                                     <div className="multiselect-checkbox-background multiselect-checkbox-background-checked ">
-                                                        <img src={CheckboxIcon} />
+                                                        <img src={CheckboxIcon} alt='checkbox' />
                                                     </div>
                                                 ) : (<div className="multiselect-checkbox-background"></div>)
                                             }
