@@ -17,6 +17,7 @@ To start a project locally:
     - npm start
 
 To test:
+
     - npm test
 
 Information:
