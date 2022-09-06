@@ -1,7 +1,6 @@
 import './App.css';
 import HomePage from './app/pages/home-page/home';
-import { Link, Route, Switch } from "react-router-dom";
-import Sorting from './app/components/sorting-component/sorting';
+import { Route, Switch } from "react-router-dom";
 function App() {
   return (
     <div>

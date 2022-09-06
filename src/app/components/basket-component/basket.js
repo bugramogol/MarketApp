@@ -19,7 +19,7 @@ class Basket extends React.Component {
                                     <div className='container-x'>
                                         <img src={basketIcon} className="basket-empty-icon" alt='basket' />
                                         <br />
-                                        Yout basket is empty
+                                        Your basket is empty
                                         <br />
                                         Add items to your cart to order
                                     </div>
