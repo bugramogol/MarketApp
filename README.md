@@ -19,7 +19,7 @@ To start a project locally:
     
 To start json-server locally, update environment.json file's host value:
 
-    - "host": "https://localhost:3001"
+    - "host": "http://localhost:3001"
     
 Then:
     
