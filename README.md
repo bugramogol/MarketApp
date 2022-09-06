@@ -32,8 +32,9 @@ To test:
 Information:
     The tests were added just to run. Tests not completed.
 
-Json-Server Issues
-    When I examined the json-server documentation, I could not find a search type for the tag attribute in the json of the product. There may be erroneous filtering because the search is made with %Like%. 
-    If I need to give an example situation, when the 'Water' tag is searched, 'WaterFall' data is also displayed because 'Water' is included in 'WaterFall'.
-    I couldn't fix this problem because I couldn't change the backend.
+<h3>Json-Server Issue:</h3>
+
+When I examined the json-server documentation, I could not find a search type for the tag attribute in the json of the product. There may be erroneous filtering because the search is made with %Like%. 
+If I need to give an example situation, when the 'Water' tag is searched, 'WaterFall' data is also displayed because 'Water' is included in 'WaterFall'.
+I couldn't fix this problem because I couldn't change the backend.
 
