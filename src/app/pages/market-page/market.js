@@ -58,14 +58,16 @@ class MarketComponent extends React.Component {
                 }
               })
             }
+            if (res.itemType === this.state.selectedItemType) {
+              var findedBrand = brands.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase())
+              if (typeof findedBrand === "undefined") {
+                brands.push({ manufacturer: res.manufacturer, count: 1, isChecked: false })
+              }
+              else {
+                findedBrand.count++;
+              }
+            }
 
-            var findedBrand = brands.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase() && res.itemType === this.state.selectedItemType)
-            if (typeof findedBrand === "undefined") {
-              brands.push({ manufacturer: res.manufacturer, count: 1, isChecked: false })
-            }
-            else {
-              findedBrand.count++;
-            }
           })
           this.setState({
             tagsDataLoaded: true,
@@ -164,7 +166,7 @@ class MarketComponent extends React.Component {
     getItems(this.state.orderByQuery, this.state.itemTypeQuery, this.state.brandQuery, this.state.tagQuery)
       .then(
         (result) => {
-          
+
           var page = 0
           if ((result.length / this.state.currentPageSize) < 1) {
             page = 1
