@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/MarketApp/static/css/main.1dadd3d3.css",
-    "main.js": "/MarketApp/static/js/main.dc37fdd7.js",
+    "main.css": "/MarketApp/static/css/main.6feda14a.css",
+    "main.js": "/MarketApp/static/js/main.fa96dc4a.js",
     "static/js/787.b3520e1f.chunk.js": "/MarketApp/static/js/787.b3520e1f.chunk.js",
     "static/media/OpenSans-Regular.ttf": "/MarketApp/static/media/OpenSans-Regular.77c09223204154ae8d43.ttf",
     "static/media/mug.jpg": "/MarketApp/static/media/mug.ccecb68bc6f464ef9160.jpg",
@@ -13,12 +13,12 @@
     "static/media/basket.svg": "/MarketApp/static/media/basket.d3e66533ac80f49d7f1ff908c9550c6c.svg",
     "static/media/checkbox.svg": "/MarketApp/static/media/checkbox.d7bbae6df23db5417396b35a30cf73db.svg",
     "static/media/minus.svg": "/MarketApp/static/media/minus.861d9216459103c9a036cf75d9d7f4de.svg",
-    "main.1dadd3d3.css.map": "/MarketApp/static/css/main.1dadd3d3.css.map",
-    "main.dc37fdd7.js.map": "/MarketApp/static/js/main.dc37fdd7.js.map",
+    "main.6feda14a.css.map": "/MarketApp/static/css/main.6feda14a.css.map",
+    "main.fa96dc4a.js.map": "/MarketApp/static/js/main.fa96dc4a.js.map",
     "787.b3520e1f.chunk.js.map": "/MarketApp/static/js/787.b3520e1f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1dadd3d3.css",
-    "static/js/main.dc37fdd7.js"
+    "static/css/main.6feda14a.css",
+    "static/js/main.fa96dc4a.js"
   ]
 }
