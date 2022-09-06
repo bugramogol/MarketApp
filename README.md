@@ -16,6 +16,14 @@ To start a project locally:
     - npm install
     
     - npm start
+    
+To start json-server locally, update environment.json file's host value:
+
+    - "host": "https://localhost:3001"
+    
+Then:
+    
+    - npx json-server --watch db.json --port=3001
 
 To test:
 
