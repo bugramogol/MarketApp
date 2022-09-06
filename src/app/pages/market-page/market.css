@@ -1,46 +1,52 @@
-.Main-Container {
+.main-container {
     margin-left: auto;
     margin-right: auto;
     max-width: 1440px;
     padding-top: 16px;
     padding-bottom: 16px;
 }
+/********************************************************************************/
+/*******************************  Layout-Container  *****************************/
+/********************************************************************************/
 
-
-.Layout-Container {
+.layout-container {
     display: flex;
     flex-direction: row;
     margin-left: 104px;
     margin-right: 104px;
 }
 
-.Layout-Left {
+.layout-left {
     width: 296px;
-    /*border: 1px solid;*/
     justify-content: left;
     align-items: flex-start;
 }
 
-.layout-center-container {
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-
-.Layout-Center {
+.layout-center {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
-.Layout-Right {
+.layout-right {
     width: 296px;
 }
 
-.Layout-Left-Content {
+/********************************************************************************/
+/*******************************  Layout-Container  *****************************/
+/********************************************************************************/
+.layout-center-container {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.layout-left-content {
     margin-bottom: 24px;
 }
 
+/********************************************************************************/
+/*******************************  Layout-Center-Header  *************************/
+/********************************************************************************/
 .header {
     font-family: 'Open Sans';
     font-style: normal;
@@ -55,13 +61,11 @@
 
 }
 
+/********************************************************************************/
+/******************************* Chip container  ********************************/
+/********************************************************************************/
 .chip-container {
     margin: 8px;
-}
-
-.chips-active {
-    background: #1EA4CE !important;
-    color: #F2F0FD !important;
 }
 
 .chips {
@@ -85,34 +89,43 @@
     color: #1EA4CE;
 }
 
+.chips-active {
+    background: #1EA4CE !important;
+    color: #F2F0FD !important;
+}
+
+
+/********************************************************************************/
+/******************************* Responsive *************************************/
+/********************************************************************************/
 @media (max-width: 1187px) {
-    /*.Layout-Right {
+    /*.layout-right {
         display: none;
     }*/
 
-    .Layout-Container {
+    .layout-container {
         flex-wrap: wrap;
     }
 
-    .Layout-Right {
+    .layout-right {
         display: flex;
         margin-left: auto;
         margin-right: auto;
     }
 }
 
-@media (max-width:880px) and (min-width:300px) {
+@media (max-width:880px) and (min-width:200px) {
 
-    .Layout-Right {
+    .layout-right {
         display: flex;
         margin-left: auto;
         margin-right: auto;
     }
-    .Layout-Left {
+    .layout-left {
         margin-right: auto;
     }
 
-    .Layout-Container {
+    .layout-container {
         display: block;
         margin-left: 32px;
         margin-right: 32px;
@@ -124,7 +137,7 @@
         margin-top: 8px;
     }
 
-    .Layout-Center {
+    .layout-center {
         display: block;
     }
 
@@ -132,12 +145,11 @@
         margin: 0px;
     }
 
-    .Product-main-Container {
+    .product-main-container {
         max-width: none;
         width: 100%;
         margin: 12px auto 12px auto !important;
     }
-
 
     .header {
         margin: 0px !important

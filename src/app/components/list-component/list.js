@@ -25,8 +25,8 @@ class List extends React.Component {
 
     render() {
         return (
-            <div className="Main-Container-2">
-                <div className="List-Container">
+            <div className="list-container">
+                <div className="list-content">
                     {
                         !!this.props.isLoaded ? (
                             this.props.items.map((item, index) => (
@@ -55,7 +55,7 @@ class List extends React.Component {
                 {
                     this.props.isLoaded === false ? (
                         <div className="spinner-container">
-                            <div className="loading-spinner">
+                            <div className="spinner">
                             </div>
                         </div>
                     ) : (null)

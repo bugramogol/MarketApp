@@ -1,10 +1,9 @@
 import React from "react";
 import "./market.css";
-
-import Sorting from "../sorting-component/sorting";
-import List from "../list-component/list";
-import MultiSelect from "../multiselect-component/multiselect";
-import Basket from "../basket-component/basket";
+import Sorting from "../../components/sorting-component/sorting";
+import List from "../../components/list-component/list";
+import MultiSelect from "../../components/multiselect-component/multiselect";
+import Basket from "../../components/basket-component/basket";
 import { getItems, getItemsByPage } from "../../services/api-service";
 import { connect } from "react-redux";
 
@@ -18,17 +17,14 @@ class MarketComponent extends React.Component {
       brandsDataLoaded: false,
       productData: [],
       productDataLoaded: false,
-
       orderByQuery: '',
       brandQuery: '',
       tagQuery: '',
-
       currentPage: 1,
       currentPageSize: 16,
       pageCount: 0,
-
-      selectedItemType: 'mug',
-      itemTypeQuery: '&itemType_like=mug'
+      selectedItemType: 'mug',  // Default value is mug for product's item type
+      itemTypeQuery: '&itemType_like=mug' // Default query value is mug for product's item type
     };
 
     this.onSortingRadioValueChange = this.onSortingRadioValueChange.bind(this)
@@ -42,34 +38,33 @@ class MarketComponent extends React.Component {
     this.getBrandAndTagLists()
     this.getProductListFilter()
   }
-
+  /* Get Brand and Tags from db and calculate counts */
+  /* Db not provide count data. It is not correct way to do it on web. But it works :) */
   getBrandAndTagLists() {
-
     getItems()
       .then(
         (response) => {
-          debugger
           var tags = []
           var brands = []
           response.forEach(res => {
             if (res.itemType == this.state.selectedItemType) {
               res.tags.forEach(el => {
-                var a = tags.find(f => f.tag.toLowerCase() === el.toLowerCase())
-                if (typeof a == "undefined") {
+                var findedTag = tags.find(f => f.tag.toLowerCase() === el.toLowerCase())
+                if (typeof findedTag == "undefined") {
                   tags.push({ tag: el, count: 1, isChecked: false })
                 }
                 else {
-                  a.count++;
+                  findedTag.count++;
                 }
               })
             }
 
-            var b = brands.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase() && res.itemType == this.state.selectedItemType)
-            if (typeof b == "undefined") {
+            var findedBrand = brands.find(f => f.manufacturer.toLowerCase() === res.manufacturer.toLowerCase() && res.itemType == this.state.selectedItemType)
+            if (typeof findedBrand == "undefined") {
               brands.push({ manufacturer: res.manufacturer, count: 1, isChecked: false })
             }
             else {
-              b.count++;
+              findedBrand.count++;
             }
           })
           this.setState({
@@ -89,8 +84,8 @@ class MarketComponent extends React.Component {
           });
         }
       )
-
   }
+
   /* On Sort Selection Change Event */
   onSortingRadioValueChange(value) {
     var query = ""
@@ -109,7 +104,6 @@ class MarketComponent extends React.Component {
 
   /* On Page Selection Change Event */
   onPageChangeEvent(page) {
-    console.log(page)
     this.setState({ currentPage: page }, () => {
       this.getProductListFilter()
     })
@@ -150,6 +144,8 @@ class MarketComponent extends React.Component {
     this.getProductListFilter(true)
   }
 
+  /* Gets Data By Count */
+  /* DB not provide totalPage data we have to get it, getItems return all data with query and calculate totalPage to show on paginator*/
   getProductsData() {
     getItemsByPage(this.state.currentPage, this.state.currentPageSize, this.state.orderByQuery, this.state.itemTypeQuery, this.state.brandQuery, this.state.tagQuery)
       .then((result) => {
@@ -168,7 +164,7 @@ class MarketComponent extends React.Component {
     getItems(this.state.orderByQuery, this.state.itemTypeQuery, this.state.brandQuery, this.state.tagQuery)
       .then(
         (result) => {
-          debugger
+          
           var page = 0
           if ((result.length / this.state.currentPageSize) < 1) {
             page = 1
@@ -190,6 +186,8 @@ class MarketComponent extends React.Component {
 
   }
 
+  /* On Filter change call this method to refresh Data and send True value*/
+  /* On Paging it will not refresh */
   getProductListFilter(refresh = false) {
     if (refresh) {
       this.setState({ productDataLoaded: false, currentPage: 1 }, () => {
@@ -200,21 +198,19 @@ class MarketComponent extends React.Component {
     }
   }
 
-
-
   render() {
     return (
-      <div className="Main-Container">
-        <div className="Layout-Container">
-          <div className="Layout-Left">
+      <div className="main-container">
+        <div className="layout-container">
+          <div className="layout-left">
 
-            <div className="Layout-Left-Content">
+            <div className="layout-left-content">
               <Sorting
                 onSortingRadioValueChange={this.onSortingRadioValueChange}
               />
             </div>
 
-            <div className="Layout-Left-Content">
+            <div className="layout-left-content">
               <MultiSelect
                 title={"Brands"}
                 items={this.state.brandsData}
@@ -224,7 +220,7 @@ class MarketComponent extends React.Component {
               />
             </div>
 
-            <div className="Layout-Left-Content">
+            <div className="layout-left-content">
               <MultiSelect
                 title={"Tags"}
                 items={this.state.tagsData}
@@ -235,7 +231,7 @@ class MarketComponent extends React.Component {
             </div>
 
           </div>
-          <div className="Layout-Center">
+          <div className="layout-center">
             <div className="flex-column layout-center-container">
               <div className="header">
                 Products
@@ -257,7 +253,7 @@ class MarketComponent extends React.Component {
               <List items={this.state.productData} isLoaded={this.state.productDataLoaded} onPageChangeEvent={this.onPageChangeEvent} pageCount={this.state.pageCount} currentPage={this.state.currentPage} />
             </div>
           </div>
-          <div className="Layout-Right">
+          <div className="layout-right">
             <Basket items={!!this.props.basket ? (this.props.basket) : ([])} />
           </div>
         </div>
@@ -266,7 +262,6 @@ class MarketComponent extends React.Component {
   }
 }
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     price: state.price,
     basket: [...state.basket]

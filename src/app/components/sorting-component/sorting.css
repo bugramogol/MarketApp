@@ -1,4 +1,4 @@
-.Sorting-Container {
+.sorting-container {
     width: 296px;
     height: 214px;
     display: flex;
@@ -9,7 +9,7 @@
     flex: 1;
 }
 
-.Form-Label {
+.form-label {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 600;
@@ -18,7 +18,7 @@
     margin-bottom: 12px;
 }
 
-.Form-Label-Color {
+.form-label-color {
     color: #697488;
 }
 
@@ -65,7 +65,7 @@ input {
     display: flex;
 }
 
-.radio-Container {
+.radio-container {
     padding: 16px;
     flex: 1;
     background: #FFFFFF;

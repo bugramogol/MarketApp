@@ -12,18 +12,23 @@ class ProductCard extends React.Component {
             product: props.product,
         };
     }
-
+    /* Update product when its changed on parent */
     componentDidUpdate(prevProps) {
         if (this.props.product !== prevProps.product) {
             this.setState({ product: this.props.product });
         }
     }
 
+    onProductAdd() {
+        this.props.onPriceAddition(this.state.product.price)
+        this.props.onPushProductBasket(this.state.product);
+    }
+
     render() {
         return (
-            <div className="Product-main-Container">
-                <div className="product-container">
-                    <div className="product-image-container">
+            <div className="product-container">
+                <div className="product-content">
+                    <div className="product-content-image-container">
                         {
                             this.state.product.itemType === "mug" ? (
                                 <img src={MugIcon} className='product-image' alt='mug-image' />
@@ -38,12 +43,7 @@ class ProductCard extends React.Component {
                     </div>
                     <div className='product-price-label'>₺ {this.state.product.price}</div>
                     <div className='product-name-label'>{this.state.product.name}</div>
-                    <button className="product-add-button" onClick={() => {
-                        this.props.onPriceAddition(this.state.product.price)
-                        this.props.onPushProductBasket(this.state.product);
-                    }}>
-                        Add
-                    </button>
+                    <button className="product-add-button" onClick={() => this.onProductAdd()}> Add </button>
                 </div>
             </div>
         );
@@ -58,9 +58,7 @@ const mapDispatchToProps = dispatch => ({
     onPushProductBasket: value =>
         dispatch({ type: 'ADDPRODUCTTOBASKET', value: value }),
     onPriceAddition: value =>
-        dispatch({ type: 'ADDITION', value: value }),
-    onPriceExtraction: value =>
-        dispatch({ type: 'EXTRACTION', value: value }),
+        dispatch({ type: 'ADDITIONTOPRICE', value: value }),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductCard);

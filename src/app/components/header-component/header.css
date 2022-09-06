@@ -1,28 +1,9 @@
-@import url('../../../App.css');
-
-.Main-Container {
-    flex: 1;
-}
-
-.empty {
-    flex: 1;
-    visibility: hidden;
-}
-
-.header-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.basket-containerr {
-    flex: 1;
-
-}
+/********************************************************************************/
+/*******************************  Header-Container  *****************************/
+/********************************************************************************/
 
 /* Header */
-.Header {
+.header-container {
     height: 76px;
     background: #1EA4CE;
     flex: 1;
@@ -31,33 +12,40 @@
 }
 
 /* Header Background */
-.HeaderBackground {
+.header-background-color {
     background: #1EA4CE;
 }
 
-/* Background */
-.Background {
-    position: absolute;
-    left: 83.82%;
-    right: 7.22%;
-    top: 0%;
-    bottom: 94.83%;
-
-    background: #147594;
+.main-container {
+    flex: 1;
 }
 
-/* Logo */
-.Logo {
+/********************************************************************************/
+/*******************************  Empty  ****************************************/
+/********************************************************************************/
+
+.empty {
+    flex: 1;
+    visibility: hidden;
+}
+
+
+/********************************************************************************/
+/*******************************  Logo  *****************************************/
+/********************************************************************************/
+.header-image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-image {
     width: 141.25px;
     height: 40.32px;
 }
 
-.basket-icon {
-    width: 24px;
-    height: 24px;
-}
-
-.header-cont {
+.header-content {
     display: flex;
     flex: 1;
     padding-left: 104px;
@@ -66,8 +54,14 @@
     background: #1EA4CE;
 }
 
-/* Basket */
-.Basket {
+/********************************************************************************/
+/*******************************  Basket  ****************************************/
+/********************************************************************************/
+.header-basket-containerr {
+    flex: 1;
+}
+
+.header-basket-content {
     background: #147594;
     width: 129px;
     font-family: 'Helvetica';
@@ -84,11 +78,14 @@
     float: right;
 }
 
-.image-content{
-    margin-right: 8px;
+.basket-image {
+    width: 24px;
+    height: 24px;
 }
 
+/********************************************************************************/
 
+/* To hide basket on small screens*/
 @media (max-width: 1187px) {
     .Basket {
         display: none;

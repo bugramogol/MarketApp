@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from './../../reducers/store';
+import { store } from '../../reducers/store';
 import Market from './market';
 
 test('Basket empty text is correct', () => {

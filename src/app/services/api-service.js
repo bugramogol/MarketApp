@@ -5,6 +5,7 @@ const getUrl = service => {
     return url;
 };
 
+/* Gets product list by page and querys */
 export const getItemsByPage = async (page, pageSize, orderByQuery = '', itemTypeQuery = '', brandQuery = '', tagQuery = '') => {
     const url = getUrl(
         'items?_page='
@@ -21,6 +22,7 @@ export const getItemsByPage = async (page, pageSize, orderByQuery = '', itemType
     return fetch(url, header).then(res => res.json());
 };
 
+/* Gets product list by querys */
 export const getItems = async (orderByQuery = '', itemTypeQuery = '', brandQuery = '', tagQuery = '') => {
     const url = getUrl(
         'items?'

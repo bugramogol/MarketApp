@@ -1,15 +1,16 @@
 import React from "react";
 import "./sorting.css";
-
+import radioCheck from './../../../assets/images/radio-check.svg'
 class Sorting extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedOption: null
         };
+
         this.onRadioValueChange = this.onRadioValueChange.bind(this);
     }
-
+    /* On Radio value change, it will send data to parent*/
     onRadioValueChange(event) {
         this.setState({
             selectedOption: event.target.value
@@ -17,13 +18,14 @@ class Sorting extends React.Component {
         this.props.onSortingRadioValueChange(event.target.value)
     }
 
+    /* Could be managed by items from props its not for the best */
     render() {
         return (
-            <div className="Sorting-Container">
-                <div className='Form-Label Form-Label-Color'>
+            <div className="sorting-container">
+                <div className='form-label form-label-color'>
                     Sorting
                 </div>
-                <div className='radio-Container'>
+                <div className='radio-container'>
 
 
                     <label className="radio-label">
@@ -37,9 +39,7 @@ class Sorting extends React.Component {
                         {
                             this.state.selectedOption === "priceAsc" ? (
                                 <div className="radio radio-checked" >
-                                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 1L3.5 6L1 3.72727" stroke="#1EA4CE" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <img src={radioCheck} alt='radio-icon' />
 
                                 </div>
                             ) : (
@@ -62,9 +62,7 @@ class Sorting extends React.Component {
                         {
                             this.state.selectedOption === "priceDesc" ? (
                                 <div className="radio radio-checked">
-                                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 1L3.5 6L1 3.72727" stroke="#1EA4CE" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <img src={radioCheck} alt='radio-icon' />
 
                                 </div>
                             ) : (
@@ -87,9 +85,7 @@ class Sorting extends React.Component {
                         {
                             this.state.selectedOption === "addedDesc" ? (
                                 <div className="radio radio-checked">
-                                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 1L3.5 6L1 3.72727" stroke="#1EA4CE" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <img src={radioCheck} alt='radio-icon' />
 
                                 </div>
                             ) : (
@@ -112,9 +108,7 @@ class Sorting extends React.Component {
                         {
                             this.state.selectedOption === "addedAsc" ? (
                                 <div className="radio radio-checked">
-                                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M9 1L3.5 6L1 3.72727" stroke="#1EA4CE" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-                                    </svg>
+                                    <img src={radioCheck} alt='radio-icon' />
 
                                 </div>
                             ) : (
@@ -135,49 +129,3 @@ class Sorting extends React.Component {
 }
 
 export default Sorting;
-/*
-                    <div className="radio">
-                        <label className="Radio-Label Radio-Label-Color">
-                            <input
-                                type="radio"
-                                value="priceAsc"
-                                checked={this.state.selectedOption === "priceAsc"}
-                                onChange={this.onSortingRadioValueChange}
-                            />
-                            Price low to high
-                        </label>
-                    </div>
-                    <div className="radio">
-                        <label className="Radio-Label Radio-Label-Color">
-                            <input
-                                type="radio"
-                                value="priceDesc"
-                                checked={this.state.selectedOption === "priceDesc"}
-                                onChange={this.onSortingRadioValueChange}
-                            />
-                            Price high to low
-                        </label>
-                    </div>
-                    <div className="radio">
-                        <label className="Radio-Label Radio-Label-Color">
-                            <input
-                                type="radio"
-                                value="addedDesc"
-                                checked={this.state.selectedOption === "addedDesc"}
-                                onChange={this.onSortingRadioValueChange}
-                            />
-                            New to old
-                        </label>
-                    </div>
-                    <div className="radio">
-                        <label className="Radio-Label Radio-Label-Color">
-                            <input
-                                type="radio"
-                                value="addedAsc"
-                                checked={this.state.selectedOption === "addedAsc"}
-                                onChange={this.onSortingRadioValueChange}
-                            />
-                            Old to new
-                        </label>
-                    </div>
-*/

@@ -27,25 +27,29 @@ class MultiSelect extends Component {
             displayExpr: this.props.displayExpr,
             keyExpr: this.props.keyExpr,
             searchValue: '',
-            value: []
+            value: [],
+            allValueChecked: false
         };
 
-        this.valueChanged = this.onValueChanged.bind(this)
+        this.onValueChanged = this.onValueChanged.bind(this)
         this.onSearchValueChanged = this.onSearchValueChanged.bind(this)
     }
 
+    /* Update props when changed from parent */
     componentDidUpdate(prevProps) {
         if (this.props.items !== prevProps.items) {
             this.setState({ items: this.props.items });
         }
     }
 
+    /* On Search Value Changed */
     onSearchValueChanged(event) {
         this.setState({ searchValue: event.target.value })
     }
 
+    /* On Value Changed, will send value to parent on trigger */
     onValueChanged(event, item, index) {
-
+        var allValue = false
         var value = event.target.value
         var isChecked = event.target.checked
 
@@ -57,15 +61,18 @@ class MultiSelect extends Component {
                 this.state.value.splice(findIndex, 1);
             }
         }
-
+        if (this.state.value.includes('All')) {
+            allValue = true
+        }
         var temp = this.state.items
-        temp[index].isChecked = event.target.checked;
-        this.setState({ items: temp })
+        if (index > -1) {
+            temp[index].isChecked = event.target.checked;
+        }
+
+        this.setState({ items: temp, allValueChecked: allValue })
 
         this.props.valueChanged(this.state.value)
     }
-
- 
 
     render() {
         return (
@@ -76,12 +83,33 @@ class MultiSelect extends Component {
                 <div className="multiselect-content">
                     <input className="multiselect-search-input" type="text" placeholder={this.state.title} onChange={this.onSearchValueChanged} />
                     <div className="multiselect-content-items-container">
+                        <div>
+                            <label className="multiselect-content-item-label">
+                                <input
+                                    type="checkbox"
+                                    onChange={(e) => this.onValueChanged(e, 'All', -1)}
+                                    name=""
+                                    value={'All'}
+                                    style={{ display: 'none' }}
+                                />
+                                {
+                                    this.state.allValueChecked ? (
+                                        <div className="multiselect-checkbox-background multiselect-checkbox-background-checked ">
+                                            <img src={CheckboxIcon} />
+                                        </div>
+                                    ) : (<div className="multiselect-checkbox-background"></div>)
+                                }
+                                <div className="multiselect-content-item-label-content">
+                                    All
+                                </div>
+                            </label>
+                        </div>
                         {
                             this.state.items
                                 .filter(f => f[this.state.displayExpr].toLowerCase().includes(this.state.searchValue.toLowerCase()))
                                 .map((item, index) => (
 
-                                    <div key={item[this.state.keyExpr]}>
+                                    <div key={index}>
                                         <label className="multiselect-content-item-label">
                                             <input
                                                 type="checkbox"

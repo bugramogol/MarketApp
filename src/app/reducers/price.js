@@ -1,9 +1,9 @@
 export default function price(state = 0, action) {
     switch (action.type) {
-        case 'ADDITION':
+        case 'ADDITIONTOPRICE':
             state = state + action.value
             return state
-        case 'EXTRACTION':
+        case 'EXTRACTIONFROMPRICE':
             state = state - action.value
             return state
         default:

@@ -4,10 +4,10 @@ import './footer.css';
 class Footer extends React.Component {
     render() {
         return (
-            <div className='Footer Footer-Color'>
-                <p className='Footer-Text'>©2019 Market</p>
-                <p className='Footer-Text'>•</p>
-                <p className='Footer-Text'>Privacy Policy</p>
+            <div className='footer-container footer-color'>
+                <p className='footer-text'>©2019 Market</p>
+                <p className='footer-text'>•</p>
+                <p className='footer-text'>Privacy Policy</p>
             </div>
         )
 

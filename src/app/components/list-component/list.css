@@ -1,12 +1,26 @@
-.Main-Container-2 {
+/********************************************************************************/
+/*******************************  Paginator  ************************************/
+/********************************************************************************/
+.list-container {
     max-width: 608px;
     margin: 8px;
 }
 
-.List-Container {
+.list-content {
     display: flex;
     flex-flow: row wrap;
     background: #ffffff;
+}
+
+
+/********************************************************************************/
+/*******************************  Paginator  ************************************/
+/********************************************************************************/
+
+.paginator-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .paginator {
@@ -25,11 +39,9 @@
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
-
     -ms-user-select: none;
     user-select: none;
     ;
-
 }
 
 .paginator li {
@@ -39,7 +51,6 @@
 }
 
 .paginator .previous a {
-
     display: flex;
     align-items: center;
     text-align: center;
@@ -53,7 +64,6 @@
 }
 
 .paginator .next a {
-
     display: flex;
     align-items: center;
     text-align: center;
@@ -74,6 +84,7 @@
     align-items: center;
 }
 
+/* Remove Marker*/
 .paginator li::marker {
     display: none !important;
     content: none;
@@ -90,12 +101,12 @@
     outline: none !important;
 }
 
-.paginator-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
 
+
+
+/********************************************************************************/
+/*******************************  Loading  **************************************/
+/********************************************************************************/
 @keyframes spinner {
     0% {
         transform: rotate(0deg);
@@ -106,13 +117,11 @@
     }
 }
 
-.loading-spinner {
+.spinner {
     width: 50px;
     height: 50px;
     border: 10px solid #F2F0FD;
-    /* Light grey */
     border-top: 10px solid #1EA4CE;
-    /* Black */
     border-radius: 50%;
     animation: spinner 1.5s linear infinite;
 
@@ -125,3 +134,5 @@
     height: 695px;
     width: 100%;
 }
+
+/********************************************************************************/

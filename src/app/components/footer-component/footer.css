@@ -1,4 +1,4 @@
-.Footer {
+.footer-container {
     height: 25px;
     padding-bottom: 23px;
     position: relative;
@@ -9,7 +9,7 @@
     width: 100%;
 }
 
-.Footer-Text {
+.footer-text {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
@@ -19,6 +19,6 @@
     margin-right: 8px;
 }
 
-.Footer-Color {
+.footer-color {
     color: #1EA4CE;
 }

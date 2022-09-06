@@ -1,3 +1,7 @@
+/********************************************************************************/
+/*****************************  Basket Container  *******************************/
+/********************************************************************************/
+
 .basket-container {
     width: 281px;
     background: #1EA4CE;
@@ -12,28 +16,22 @@
     padding-top: 18px;
 }
 
-.basket-card {
-    justify-content: center;
-    align-items: center;
-    height: 40px;
+/********************************************************************************/
+/***********************************  Labels ************************************/
+/********************************************************************************/
+
+/* Label Text*/
+.basket-label {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.16px;
+    color: #191919;
 }
 
-.basket-empty {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 400px;
-}
-
-.basket-card-container {
-    width: 231px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 18px;
-    padding-top: 18px;
-    border-bottom: 1px solid #F4F4F4;
-}
-
+/* Price Text */
 .basket-price {
     font-family: 'Open Sans';
     font-style: normal;
@@ -45,19 +43,15 @@
     margin-top: 4px;
 }
 
-.basket-product-name {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    /* or 129% */
+/********************************************************************************/
 
-    letter-spacing: 0.16px;
-
-    /* Grayscale / 700 */
-
-    color: #191919;
+/********************************************************************************/
+/**************************  Basket Empty Container *****************************/
+/********************************************************************************/
+.basket-empty-container {
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
 }
 
 .basket-empty-icon {
@@ -65,25 +59,75 @@
     width: 100px;
 }
 
-.container-x {
-    display: flex;
-    flex-direction: column;
+.basket-empty-content {
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
+/********************************************************************************/
+/***************************  Basket List Container  ****************************/
+/********************************************************************************/
+.basket-content-items-container {
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+/* width */
+.basket-content-items-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.basket-content-items-container::-webkit-scrollbar-track {
+    background: #FFFFFF;
+}
+
+/* Handle */
+.basket-content-items-container::-webkit-scrollbar-thumb {
+    background: #E0E0E0;
+    border-radius: 4px;
+}
+
+/* Handle on hover */
+.basket-content-items-container::-webkit-scrollbar-thumb:hover {
+    background: #dddddd;
+}
+
+/********************************************************************************/
+/*******************************  Basket Card  **********************************/
+/********************************************************************************/
+
+.basket-card-container {
+    width: 231px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 18px;
+    padding-top: 18px;
+    border-bottom: 1px solid #F4F4F4;
+}
+
+.basket-card {
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}
+
+.basket-card-label-container {
+    flex: 1;
+    width: 100%;
+}
+
 .basket-button {
     flex-direction: row;
     height: 32px;
-
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
     line-height: 20px;
     text-align: center;
-
     color: #FFFFFF;
 }
 
@@ -104,7 +148,9 @@
     margin-right: 11px;
 }
 
-.basket-button-img {}
+/********************************************************************************/
+/*******************************  Basket Total  *********************************/
+/********************************************************************************/
 
 .basket-total {
     display: flex;
@@ -112,7 +158,6 @@
     align-items: center;
     width: 91px;
     height: 40px;
-
     background: #FFFFFF;
     border: 2px solid #1EA4CE;
     border-radius: 2px;
@@ -125,68 +170,10 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 16px;
-    /* or 114% */
-
     display: flex;
     align-items: center;
     text-align: right;
-
     color: #1EA4CE;
 }
 
-
-.test {
-    min-height: 400px;
-    max-height: 400px;
-    overflow-y: scroll;
-}
-
-/* width */
-.test::-webkit-scrollbar {
-    width: 4px;
-}
-
-/* Track */
-.test::-webkit-scrollbar-track {
-    background: #FFFFFF;
-}
-
-/* Handle */
-.test::-webkit-scrollbar-thumb {
-    background: #E0E0E0;
-    border-radius: 4px;
-}
-
-/* Handle on hover */
-.test::-webkit-scrollbar-thumb:hover {
-    background: #dddddd;
-}
-
-.basket-iconn {
-    width: 24px;
-    height: 24px;
-}
-
-/* Basket */
-.Baskett {
-    background: #147594;
-    width: 129px;
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 18px;
-    align-items: center;
-    letter-spacing: 0.16px;
-    color: #FFFFFF;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    right: 104px;
-    height: 76px;
-}
-
-.basket-button-cc{
-    flex: 1;
-    width: 100%;
-}
+/********************************************************************************/
