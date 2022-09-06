@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/MarketApp/static/css/main.c7bd4c83.css",
-    "main.js": "/MarketApp/static/js/main.c0e65684.js",
+    "main.js": "/MarketApp/static/js/main.9ad8c715.js",
     "static/js/787.b3520e1f.chunk.js": "/MarketApp/static/js/787.b3520e1f.chunk.js",
     "static/media/OpenSans-Regular.ttf": "/MarketApp/static/media/OpenSans-Regular.77c09223204154ae8d43.ttf",
     "static/media/mug.jpg": "/MarketApp/static/media/mug.ccecb68bc6f464ef9160.jpg",
@@ -15,11 +15,11 @@
     "static/media/radio-check.svg": "/MarketApp/static/media/radio-check.789273566beaf36a0dc955a70b470204.svg",
     "static/media/minus.svg": "/MarketApp/static/media/minus.861d9216459103c9a036cf75d9d7f4de.svg",
     "main.c7bd4c83.css.map": "/MarketApp/static/css/main.c7bd4c83.css.map",
-    "main.c0e65684.js.map": "/MarketApp/static/js/main.c0e65684.js.map",
+    "main.9ad8c715.js.map": "/MarketApp/static/js/main.9ad8c715.js.map",
     "787.b3520e1f.chunk.js.map": "/MarketApp/static/js/787.b3520e1f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c7bd4c83.css",
-    "static/js/main.c0e65684.js"
+    "static/js/main.9ad8c715.js"
   ]
 }
